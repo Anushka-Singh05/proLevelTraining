@@ -1023,7 +1023,10 @@
       <div class="container">
         <!-- FIX: use button/span instead of <a href="#"> to prevent scroll-jump on click -->
         <span style="display:inline-block;margin-bottom:4px;cursor:pointer;" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-          <img src="logo.png" alt="FlexWork" style="height:60px;width:auto;">
+          <a class="navbar-brand fs-2 fw-extrabold" href="https://flex-work.in/" style="color: var(--brand-purple)">
+    <img src="logo.png" alt="FlexWork Logo"
+         style="height:50px; filter: drop-shadow(0 0 2px rgba(123,125,252,.4));">
+</a>
         </span>
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
@@ -1507,7 +1510,10 @@
         <div class="row g-4 mb-4">
           <div class="col-lg-3 col-md-6 col-12 foot-anim">
             <span style="display:inline-block;margin-bottom:8px;cursor:pointer;" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-              <img src="logo.png" alt="FlexWork" style="height:72px;width:auto;">
+              <a class="navbar-brand fs-2 fw-extrabold" href="https://flex-work.in/" style="color: var(--brand-purple)">
+    <img src="logo.png" alt="FlexWork Logo"
+         style="height:50px; filter: drop-shadow(0 0 2px rgba(123,125,252,.4));">
+</a>
             </span>
             <div class="d-flex gap-2 mt-2 flex-wrap">
               <a href="https://www.linkedin.com/company/flexwork.in" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="soc-link" style="width:42px;height:42px;border:1px solid #e5e7eb;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#6b7280;text-decoration:none;"><i class="bi bi-linkedin" style="font-size:18px;"></i></a>
@@ -1774,6 +1780,13 @@
           if (!entry.isIntersecting) return;
           var el  = entry.target;
           var raw = el.textContent.trim();
+          var raw = el.textContent.trim();
+
+if (raw.includes('/')) {
+    el.textContent = raw;
+    io.unobserve(el);
+    return;
+}
           var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
           var suffix = raw.replace(/[0-9.]/g, '');
           if (isNaN(num)) return;
